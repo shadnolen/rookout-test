@@ -9,6 +9,13 @@ class BSTPython(object):
 
     # total frame
     def __init__(self):
+        self.miles_enter = None
+        self.weather_enter = None
+        self.hours_enter = None
+        self.wage_enter = None
+        self.user_app = None
+        self.user_local = None
+        self.user_query = None
         self.exp_local = None
         self.exp_user_personal = None
         self.exp_gas = None
@@ -21,7 +28,7 @@ class BSTPython(object):
         display = Label(total_window, text=self.user_query.get() + ",")
         display.place(relx=0.30, rely=0.05, relwidth=1.0, anchor='n')
 
-        display = Label(total_window, text="Before expenses you made: $" + float(self.wage_enter.get()))
+        display = Label(total_window, text="Before expenses you made: $0.00" + self.wage_enter.get())
         display.place(relx=0.30, rely=0.15, relwidth=1.0, anchor='n')
 
         miles = Label(total_window,
@@ -66,7 +73,7 @@ class BSTPython(object):
         gas_entry.place(relx=0.68, rely=0.42, relwidth=0.30, anchor='n')
 
         # buttons 
-        button_expense = Button(expense_window, text="Submit", command=self.user_total)
+        button_expense = Button(expense_window, text="Total", command=self.user_total)
         button_expense.place(relx=0.25, rely=0.70, relwidth=0.25, anchor='n')
         button_cancel = Button(expense_window, text="Submit", command=self.main_frame)
         button_cancel.place(relx=0.65, rely=0.70, relwidth=0.25, anchor='n')
@@ -129,18 +136,10 @@ class BSTPython(object):
         weather_entry.place(relx=0.68, rely=0.60, relwidth=0.30, anchor='n')
 
         # buttons 
-        button_expense = Button(income_window, text="Submit", command=self.user_expense)
+        button_expense = Button(income_window, text="Expense", command=self.user_expense)
         button_expense.place(relx=0.25, rely=0.70, relwidth=0.25, anchor='n')
         button_cancel = Button(income_window, text="Submit", command=self.main_frame)
         button_cancel.place(relx=0.65, rely=0.70, relwidth=0.25, anchor='n')
-
-        # test driver Delete when done
-        location_entry.insert(0, "Columbia, Mo")
-        app_entry.insert(0, "GrubHub")
-        wage_entry.insert(0, 115.0)
-        hours_entry.insert(0, 8)
-        miles_entry.insert(0, 92.0)
-        weather_entry.insert(0, "Sunny")
 
     # main frame
     def main_frame(self, root):
