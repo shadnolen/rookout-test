@@ -1,3 +1,5 @@
+import rook
+
 import sqlite_class
 from sqlite_class import SQlite
 from tkinter import *
@@ -162,7 +164,9 @@ class BSTPython(object):
         user_entry.insert(0, "Test Driver")
 
 
-root = Tk()
-app = BSTPython()
-app.main_frame(root)
-root.mainloop()
+if __name__ == "__main__":
+    rook.start(token='eaffdcffc205a2a475278a038ef15c86feae68ce0d9fff73630e56837ca78549', labels={"env": "dev"})
+    root = Tk()
+    app = BSTPython()
+    app.main_frame(root)
+    root.mainloop()
